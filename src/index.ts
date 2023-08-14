@@ -37,5 +37,5 @@ export class BvCode {
   }
 }
 
-export const av2bv = BvCode.av2bv.bind(BvCode)
-export const bv2av = BvCode.bv2av.bind(BvCode)
+export const av2bv: typeof BvCode.av2bv = BvCode.av2bv.bind(BvCode)
+export const bv2av: typeof BvCode.bv2av = BvCode.bv2av.bind(BvCode)
