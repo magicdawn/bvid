@@ -10,7 +10,7 @@
 
 ## Credits
 
-https://socialsisteryi.github.io/bilibili-API-collect/docs/other/bvid_desc.html#typescript
+https://socialsisteryi.github.io/bilibili-API-collect/docs/misc/bvid_desc.html#typescript
 
 ## Install
 

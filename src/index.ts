@@ -1,7 +1,3 @@
-/**
- * https://socialsisteryi.github.io/bilibili-API-collect/docs/other/bvid_desc.html#typescript
- */
-
 export class BvCode {
   private static TABEL = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF' // 码表
   private static TR: Record<string, number> = {} // 反查码表
