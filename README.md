@@ -12,6 +12,11 @@
 
 https://socialsisteryi.github.io/bilibili-API-collect/docs/misc/bvid_desc.html#typescript
 
+## Goodies
+
+- [x] TypeScript definition
+- [x] Unit test, 100% code coverage
+
 ## Install
 
 ```sh
