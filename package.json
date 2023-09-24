@@ -1,6 +1,6 @@
 {
   "name": "@mgdn/bvid",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "bilibili bvid",
   "type": "commonjs",
   "main": "dist/index.js",
