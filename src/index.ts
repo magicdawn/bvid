@@ -1,37 +1,37 @@
-export class BvCode {
-  private static TABEL = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF' // 码表
-  private static TR: Record<string, number> = {} // 反查码表
-  private static S = [11, 10, 3, 8, 4, 6] // 位置编码表
-  private static XOR = 177451812 // 固定异或值
-  private static ADD = 8728348608 // 固定加法值
+/**
+ * https://socialsisteryi.github.io/bilibili-API-collect/docs/misc/bvid_desc.html#javascript-typescript
+ */
 
-  // init()
-  static {
-    // 初始化反查码表
-    const len = this.TABEL.length
-    for (let i = 0; i < len; i++) {
-      this.TR[this.TABEL[i]] = i
-    }
-  }
+const XOR_CODE = 23442827791579n
+const MASK_CODE = 2251799813685247n
+const MAX_AID = 1n << 51n
+const BASE = 58n
 
-  static av2bv(av: number): string {
-    const x_ = (av ^ this.XOR) + this.ADD
-    // eslint-disable-next-line no-sparse-arrays
-    const r = ['B', 'V', '1', , , '4', , '1', , '7']
-    for (let i = 0; i < 6; i++) {
-      r[this.S[i]] = this.TABEL[Math.floor(x_ / 58 ** i) % 58]
-    }
-    return r.join('')
-  }
+const data = 'FcwAPNKTMug3GV5Lj7EJnHpWsx4tb8haYeviqBz6rkCy12mUSDQX9RdoZf'
 
-  static bv2av(bv: string): number {
-    let r = 0
-    for (let i = 0; i < 6; i++) {
-      r += this.TR[bv[this.S[i]]] * 58 ** i
-    }
-    return (r - this.ADD) ^ this.XOR
+export type BV1String = `BV1${string}`
+
+export function av2bv(aid: number) {
+  const bytes = ['B', 'V', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+  let bvIndex = bytes.length - 1
+  let tmp = (MAX_AID | BigInt(aid)) ^ XOR_CODE
+  while (tmp > 0) {
+    bytes[bvIndex] = data[Number(tmp % BigInt(BASE))]
+    tmp = tmp / BASE
+    bvIndex -= 1
   }
+  ;[bytes[3], bytes[9]] = [bytes[9], bytes[3]]
+  ;[bytes[4], bytes[7]] = [bytes[7], bytes[4]]
+  return bytes.join('') as BV1String
 }
 
-export const av2bv: typeof BvCode.av2bv = BvCode.av2bv.bind(BvCode)
-export const bv2av: typeof BvCode.bv2av = BvCode.bv2av.bind(BvCode)
+export function bv2av(bvid: BV1String) {
+  const bvidArr = Array.from<string>(bvid)
+  ;[bvidArr[3], bvidArr[9]] = [bvidArr[9], bvidArr[3]]
+  ;[bvidArr[4], bvidArr[7]] = [bvidArr[7], bvidArr[4]]
+  bvidArr.splice(0, 3)
+  const tmp = bvidArr.reduce((pre, bvidChar) => pre * BASE + BigInt(data.indexOf(bvidChar)), 0n)
+  return Number((tmp & MASK_CODE) ^ XOR_CODE)
+}
+
+export const BvCode = { av2bv, bv2av }
