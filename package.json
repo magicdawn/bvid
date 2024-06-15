@@ -6,15 +6,11 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
-      "types": {
-        "import": "./dist/index.d.mts",
-        "default": "./dist/index.d.ts"
-      },
-      "default": {
-        "import": "./dist/index.mjs",
-        "default": "./dist/index.js"
-      }
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
@@ -67,5 +63,6 @@
     "*.{js,jsx,ts,tsx,less,md}": [
       "prettier --write"
     ]
-  }
+  },
+  "packageManager": "pnpm@9.3.0+sha512.ee7b93e0c2bd11409c6424f92b866f31d3ea1bef5fbe47d3c7500cdc3c9668833d2e55681ad66df5b640c61fa9dc25d546efa54d76d7f8bf54b13614ac293631"
 }
