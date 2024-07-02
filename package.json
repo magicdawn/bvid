@@ -8,7 +8,6 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     }
@@ -23,7 +22,8 @@
     "test-cover": "vitest run --coverage",
     "dev": "tsup --watch",
     "build": "tsup",
-    "prepublishOnly": "pnpm test-cover && pnpm build"
+    "prepublishOnly": "pnpm test-cover && pnpm build",
+    "typeswrong": "attw --pack ."
   },
   "repository": {
     "type": "git",
@@ -40,19 +40,19 @@
   },
   "homepage": "https://github.com/magicdawn/bvid#readme",
   "devDependencies": {
-    "@magicdawn/prettier-config": "^0.0.3",
-    "@swc/core": "^1.6.0",
-    "@types/node": "^20.14.2",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
+    "@magicdawn/prettier-config": "^0.0.4",
+    "@swc/core": "^1.6.6",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
     "@vitest/coverage-v8": "^1.6.0",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
     "tsup": "^8.1.0",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.3",
     "vitest": "^1.6.0"
   },
   "publishConfig": {
