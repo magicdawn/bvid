@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.3.0 2024-07-02
+
+### 🏡 Chores
+
+- Update deps & make arethetypeswrong happy - by **magicdawn** [<samp>(48dd2)</samp>](https://github.com/magicdawn/bvid/commit/48dd223)
+
 ## v0.2.1 2024-06-15
 
 - 9c0bf79 chore: update deps
