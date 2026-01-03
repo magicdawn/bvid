@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { BvCode, av2bv, bv2av, type BV1String } from '../src/index'
+import { av2bv, bv2av, BvCode, type BV1String } from '../src/index'
 
 const cases: [bvid: BV1String, avid: number][] = [
   ['BV17x411w7KC', 170001],

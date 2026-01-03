@@ -13,4 +13,4 @@ coverage.*
 **/*.tsbuildinfo
 /dist
 
-/demo*
+/demo
