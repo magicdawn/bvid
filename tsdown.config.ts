@@ -3,7 +3,7 @@ import { defineConfig } from 'tsdown'
 export default defineConfig({
   entry: ['src/index.ts'],
   format: 'esm',
-  target: 'node16',
+  target: 'es2022',
   clean: true,
   dts: true,
   fixedExtension: false, // false: use `.js`
